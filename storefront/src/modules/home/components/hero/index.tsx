@@ -1,5 +1,5 @@
 "use client"
-import DesktopLinks from "./DesktopLinks"
+import DesktopLinks from "./desktopLinks"
 import HomePageSlider from "./slider"
 import SliderCategoriesComponent from "./sliderCategoriesComponent"
 import SliderSideComponentsDesktop from "./sliderSide"

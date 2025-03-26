@@ -89,7 +89,7 @@ const MegaMenu = ({
         </LocalizedClientLink>
         {isHovered && (
           <div className="fixed left-0 right-0 top-[60px] flex gap-32 py-10 px-20 bg-white border-b border-neutral-200 ">
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-wrap gap-2">
               {mainCategories.map((category) => (
                 <LocalizedClientLink
                   key={category.id}
