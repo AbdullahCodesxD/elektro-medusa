@@ -12,17 +12,22 @@ export default async function ProductRail({
   collection: HttpTypes.StoreCollection
   region: HttpTypes.StoreRegion
 }) {
-  const { products } = collection
+  const productsLength = collection.products?.length
 
+  if (productsLength === 0) {
+    return null
+  }
+  const products = collection?.products?.slice(0, 4)
   if (!products) {
     return null
   }
 
-  const productsWithPrices = await getProductsById({
-    ids: products.map((p) => p.id!),
-    regionId: region.id,
-  })
+  // const productsWithPrices = await getProductsById({
+  //   ids: products.map((p) => p.id!),
+  //   regionId: region.id,
+  // })
 
+  const productsWithPrices = products
   return (
     <div className="content-container py-12 small:py-24 bg-neutral-100">
       <div className="flex justify-between mb-8">

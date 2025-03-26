@@ -8,22 +8,27 @@ import { RequestQuotePrompt } from "@modules/quotes/components/request-quote-pro
 import SkeletonAccountButton from "@modules/skeletons/components/skeleton-account-button"
 import SkeletonCartButton from "@modules/skeletons/components/skeleton-cart-button"
 import SkeletonMegaMenu from "@modules/skeletons/components/skeleton-mega-menu"
+import Image from "next/image"
 import { Suspense } from "react"
 
 export function NavigationHeader() {
   return (
-    <div className="sticky top-0 inset-x-0 group bg-white text-zinc-900 small:p-4 p-2 text-sm border-b duration-200 border-ui-border-base z-50">
-      <header className="flex w-full content-container relative small:mx-auto justify-between">
+    <div className="sticky top-0 inset-x-0 group bg-white text-zinc-900 p-2 text-sm border-b duration-200 border-ui-border-base z-50">
+      <header className="flex p-0 w-full content-container relative justify-between">
         <div className="small:mx-auto flex justify-between items-center min-w-full">
           <div className="flex items-center small:space-x-4">
             <LocalizedClientLink
               className="hover:text-ui-fg-base flex items-center w-fit"
               href="/"
             >
-              <h1 className="small:text-base text-sm font-medium flex items-center">
-                <LogoIcon className="inline mr-2" />
-                Medusa B2B Starter
-              </h1>
+              <div className="relative w-[200px] h-[45px]">
+                <Image
+                  src="/logo.png"
+                  alt="Logo"
+                  fill
+                  className="object-cover object-left"
+                />
+              </div>
             </LocalizedClientLink>
 
             <nav>
@@ -47,12 +52,12 @@ export function NavigationHeader() {
 
             <div className="h-4 w-px bg-neutral-300" />
 
-            <RequestQuotePrompt>
+            {/* <RequestQuotePrompt>
               <button className="flex gap-1.5 items-center rounded-2xl bg-none shadow-none border-none hover:bg-neutral-100 px-2 py-1">
                 <FilePlus />
                 <span className="hidden small:inline-block">Quote</span>
               </button>
-            </RequestQuotePrompt>
+            </RequestQuotePrompt> */}
 
             <Suspense fallback={<SkeletonAccountButton />}>
               <AccountButton />
